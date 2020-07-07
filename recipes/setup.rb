@@ -11,10 +11,11 @@ package 'git' do
 end
 
 file '/etc/motd' do
-  content 'This is a centos Server'
-  action :create
-  owner 'root'
-  group 'root'
+  content "This is a centos server 
+  Hostname : #{node['hostname']}
+  IPAddress : #{node['ipaddress']}
+  Memory : #{node['memory']['total']}
+  CPU : #{node['cpu']['0']['total']}"
 end
 
 service 'ntpd' do
